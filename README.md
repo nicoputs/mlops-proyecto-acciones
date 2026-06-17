@@ -76,11 +76,11 @@ mlflow ui
 
 The two classes are close to balanced (~54% up / ~46% down), which means the **majority-class baseline** sits at about **0.549 accuracy** — the bar every model must beat.
 
-![Class balance](images/balance_clases.png)
+![Class balance](images/balance_clases.jpeg)
 
 The engineered features were checked for redundancy. As expected, the moving-average ratios (`price_to_ma_*`) are strongly correlated with each other, and the volatility features form their own cluster, while lagged returns are mostly independent.
 
-![Feature correlation matrix](images/correlacion.png)
+![Feature correlation matrix](images/correlacion.jpeg)
 
 ### Feature engineering
 
@@ -104,9 +104,9 @@ We trained and logged **five runs** in an MLflow experiment named `stock-directi
 | logistic_regression_c01   | 0.540    | 0.561     | 0.833  | 0.670 | 0.472   |
 | **random_forest_simple**  | **0.562**| 0.571     | **0.886** | **0.695** | **0.505** |
 
-![MLflow run comparison](images/mlflow_comparacion.png)
+![MLflow run comparison](images/mlflow_comparacion.jpeg)
 
-![MLflow parallel coordinates](images/mlflow_parallel.png)
+![MLflow parallel coordinates](images/mlflow_parallel.jpeg)
 
 ### Model selection
 
@@ -144,7 +144,7 @@ On the predictive side, the results are deliberately reported with honesty. The 
 
 ## Team
 
-| Member   | GitHub                    | Contribution                                                                 |
-|----------|---------------------------|------------------------------------------------------------------------------|
-| Nico     | `nicoputs`                | Infrastructure: repository, project structure, data acquisition, dependencies, CI/CD and on-demand workflows. |
-| Alejandro| `alejandroospina-at-eada` | Modeling: exploratory analysis, experiment design and tracking, model selection, and final training code. |
+| Member           | GitHub                    | Contribution                                                                                                  |
+|------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|
+| Nicolas Santis   | `nicoputs`                | Infrastructure: repository, project structure, data acquisition, dependencies, CI/CD and on-demand workflows. |
+| Alejandro Ospina | `alejandroospina-at-eada` | Modeling: exploratory analysis, experiment design and tracking, model selection, and final training code.     |
