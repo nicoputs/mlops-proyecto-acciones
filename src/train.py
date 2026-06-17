@@ -4,7 +4,7 @@ import mlflow
 
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -46,17 +46,25 @@ def main():
     majority = y_train.mode()[0]
     baseline_acc = (y_test == majority).mean()
 
-    with mlflow.start_run(run_name="logistic_regression"):
+    with mlflow.start_run(run_name="random_forest_simple"):
         model = Pipeline(
             [
                 ("scaler", StandardScaler()),
-                ("clf", LogisticRegression(max_iter=1000, C=1.0)),
+                (
+                    "clf",
+                    RandomForestClassifier(
+                        n_estimators=100, max_depth=3, random_state=42
+                    ),
+                ),
             ]
         )
         model.fit(X_train, y_train)
 
         metrics = evaluate(model, X_test, y_test)
-        mlflow.log_param("model", "LogisticRegression")
+        mlflow.log_param("model", "RandomForestClassifier")
+        mlflow.log_param("n_estimators", 100)
+        mlflow.log_param("max_depth", 3)
+        mlflow.log_param("random_state", 42)
         mlflow.log_param("ticker", TICKER)
         mlflow.log_param("n_features", len(feature_names))
         mlflow.log_metric("baseline_accuracy", baseline_acc)
