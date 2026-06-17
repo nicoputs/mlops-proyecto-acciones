@@ -1,8 +1,8 @@
-# Apple Stock Direction Prediction — An MLOps Pipeline
+# Apple Stock Direction Prediction: An MLOps Pipeline
 
 A reproducible machine-learning pipeline that predicts whether **Apple (AAPL)** stock will close **up or down the next trading day**. The project covers the full MLOps cycle: data acquisition, feature engineering, experiment tracking with MLflow, model selection, and automated CI/CD with on-demand batch inference — all under a Git branch / pull-request workflow.
 
-> University project for the *MLOps and System Design* course.
+> Project for the *MLOps and System Design* course.
 
 ---
 
